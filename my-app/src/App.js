@@ -1,10 +1,13 @@
 import React from "react";
 import "./App.css";
 
-export class App extends React.Component {
-  render() {
-    this.props;
-    return <div className="text">Hello world!</div>;
-  }
+function Massage(props) {
+  return (
+    <div className="text">
+      <h1>Hello world! My name is {props.name}.</h1>
+      <h2>How are you?</h2>
+    </div>
+  );
 }
-export default App;
+
+export default Massage;

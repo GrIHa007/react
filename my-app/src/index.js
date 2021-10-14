@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import Massage from "./App";
 
+const myName = "Grigory";
 ReactDOM.render(
   <React.StrictMode>
-    <App text={`Hello world!`}></App>
+    <Massage name={myName} />
   </React.StrictMode>,
   document.getElementById("root")
 );
