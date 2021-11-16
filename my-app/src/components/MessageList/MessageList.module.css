@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #1dd6f7;
+  background-color: black;
+  margin-top: 200px;
+}
+
+.text h1 {
+  text-align: center;
+  color: lime;
+}
+
+.text h2 {
+  margin-top: 30px;
+  text-align: center;
+  color: lime;
+}
+
+.container {
+  margin: 20px auto;
+  max-width: 700px;
+}
+
+.area {
+  border: lime solid 3px;
+  padding: 10px 10px;
+  flex-direction: column;
+  display: flex;
+  /* text-align: right; */
+}
+
+.SendIcon {
+  color: lime;
+}
+
+.Input {
+  background-color: grey;
+}
