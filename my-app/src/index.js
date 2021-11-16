@@ -1,12 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Massage from "./App";
+import { ThemeProvider, createTheme } from "@mui/material";
+import { MessageList } from "./components";
 
 const myName = "Grigory";
+
+const light = createTheme({
+  color: "black",
+});
+
 ReactDOM.render(
-  <React.StrictMode>
-    <Massage name={myName} />
-  </React.StrictMode>,
+  <ThemeProvider theme={light}>
+    <MessageList name={myName} />
+  </ThemeProvider>,
   document.getElementById("root")
 );
