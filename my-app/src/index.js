@@ -1,17 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import { ThemeProvider, createTheme } from "@mui/material";
+import { MessageList } from "./components";
+import { Layout } from "./components/layout/layout";
+import { Header } from "./components/Header/header";
+import { ChatList } from "./components/Chat-list/ChatList";
+
+const light = createTheme({
+  color: "black",
+});
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <ThemeProvider theme={light}>
+    <Layout
+      header={<Header />}
+      chats={<ChatList />}
+      messages={<MessageList />}
+    />
+  </ThemeProvider>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

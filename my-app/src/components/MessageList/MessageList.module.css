@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+}
+
+.container {
+  margin: 20px auto;
+  max-width: 700px;
+}
+
+.area {
+  border: lime solid 3px;
+  padding: 10px 10px;
+  flex-direction: column;
+  display: flex;
+  /* text-align: right; */
+}
+
+.SendIcon {
+  color: lime;
+}
+
+.Input {
+  background-color: grey;
+}
