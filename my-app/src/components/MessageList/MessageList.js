@@ -27,8 +27,6 @@ export function MessageList(props) {
 
   return (
     <div className={styles.text}>
-      <h1>Hello world! My name is {props.name}! Who are you?</h1>
-      <h2>Here, you may write several words about you :)</h2>
       <div className={styles.container}>
         <div className={styles.area}>
           {messageList.map((article, index) => (
