@@ -1,56 +1,76 @@
-import React, { useEffect, useState } from "react";
-import { Message } from "./message";
-import styles from "./MessageList.module.css";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useParams } from "react-router-dom";
 import { Input, InputAdornment } from "@mui/material";
-import {} from "@mui/material";
-import {} from "@mui/material";
-import SendIcon from "@mui/icons-material/Send";
+import { Send } from "@mui/icons-material";
+import { Message } from "./message";
+import { useBotAnswer } from "./hook/use-bot-answer";
+import styles from "../MessageList/MessageList.module.css";
+export const MessageList = () => {
+  const { roomId } = useParams();
 
-export function MessageList(props) {
-  const [messageList, setList] = useState([]);
+  const [messageList, setMessageList] = useState({});
   const [value, setValue] = useState("");
 
-  const sendMessage = () => {
-    setList([...messageList, { author: "Me", text: value }]);
-    setValue("");
+  const ref = useRef(null);
+
+  const sendMessage = useCallback(
+    (message, author = "User") => {
+      if (message) {
+        setMessageList({
+          ...messageList,
+          [roomId]: [
+            ...(messageList[roomId] ?? []),
+            { author, message, date: new Date() },
+          ],
+        });
+
+        setValue("");
+      }
+    },
+    [messageList, roomId]
+  );
+
+  const handlePressInput = ({ code }) => {
+    if (code === "Enter") {
+      sendMessage(value);
+    }
   };
 
-  useEffect(() => {
-    const lastAuthor = messageList[messageList.length - 1];
-
-    if (messageList.length && lastAuthor.author === "Me") {
-      setTimeout(() => {
-        setList([...messageList, { author: "Bot", text: "Hello from Bot!" }]);
-      }, 500);
+  const handleScrollBottom = useCallback(() => {
+    if (ref.current) {
+      ref.current.scrollTo(0, ref.current.scrollHeight);
     }
-  }, [messageList]);
+  }, []);
+
+  useEffect(() => {
+    handleScrollBottom();
+  }, [messageList, handleScrollBottom]);
+
+  useBotAnswer(messageList, sendMessage);
+
+  const messages = messageList[roomId] ?? [];
 
   return (
-    <div className={styles.text}>
-      <div className={styles.container}>
-        <div className={styles.area}>
-          {messageList.map((article, index) => (
-            <Message key={index} article={article} />
-          ))}
-        </div>
-        <Input
-          className={styles.Input}
-          variant="outlined"
-          fullWidth
-          placeholder="Текст сообщения"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          endAdornment={
-            <InputAdornment position="end">
-              {value && (
-                <SendIcon className={styles.SendIcon} onClick={sendMessage} />
-              )}
-            </InputAdornment>
-          }
-        />
+    <>
+      <div ref={ref}>
+        {messages.map((message, index) => (
+          <Message key={index} message={message} />
+        ))}
       </div>
-    </div>
-  );
-}
 
-export default MessageList;
+      <Input
+        className={styles.input}
+        fullWidth
+        placeholder="Введите сообщение..."
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onKeyPress={handlePressInput}
+        endAdornment={
+          <InputAdornment position="end">
+            {value && <Send onClick={() => sendMessage(value)} />}
+          </InputAdornment>
+        }
+      />
+    </>
+  );
+};

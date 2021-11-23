@@ -1,9 +1,8 @@
 .header {
-  background-color: grey;
-  border: 2px solid lime;
+  background-color: rgb(49, 49, 49);
   height: 60px;
 }
 
 .header h5 {
-  color: lime;
+  color: rgb(43, 202, 11);
 }
