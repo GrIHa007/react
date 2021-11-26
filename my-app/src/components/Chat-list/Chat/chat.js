@@ -10,7 +10,7 @@ export function Chat({ title, selected, handleListItemClick }) {
       </ListItemIcon>
       <div className={styles.description}>
         <ListItemText className={styles.text} primary={title} />
-        <ListItemText className={styles.time} primary="12.30" />
+        <ListItemText className={styles.text} primary="12.30" />
       </div>
     </ListItem>
   );

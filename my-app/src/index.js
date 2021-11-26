@@ -5,14 +5,16 @@ import { Header } from "./components";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ChatPage } from "./pages/chat";
 
-ReactDOM.render(
-  <BrowserRouter>
-    <Header />
-    <Routes>
-      <Route path="/chat/*" element={<ChatPage />}></Route>
-      <Route path="/profile"></Route>
-      <Route path="/*" element={<h1>404</h1>}></Route>
-    </Routes>
-  </BrowserRouter>,
-  document.getElementById("root")
-);
+const Root = () => {
+  return (
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/chat/*" element={<ChatPage />} />
+        <Route path="/profile" />
+        <Route path="/*" element={<h1>404</h1>} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+ReactDOM.render(<Root />, document.getElementById("root"));

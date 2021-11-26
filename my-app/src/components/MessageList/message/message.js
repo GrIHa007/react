@@ -4,13 +4,13 @@ import styles from "./message.module.css";
 export function Message({ message }) {
   return (
     <div
-      className={classNames(styles.BotMessage, {
-        [styles.MyMessage]: message.author === "Me",
+      className={classNames(styles.message, {
+        [styles.currentMessage]: message.author === "User",
       })}
     >
-      <h3>{message.author}</h3>
-      <p>{message.text}</p>
-      <p>12:03</p>
+      <h3>{message.message}</h3>
+      <p>{message.author}</p>
+      <p>12.03</p>
     </div>
   );
 }
