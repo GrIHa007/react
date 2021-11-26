@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  /* overflow-y: hidden; */
+}
+
+.content {
+  display: flex;
+  margin-top: 20px;
+}
+
+.chats {
+  width: 25%;
+  background-color: rgb(49, 49, 49);
+}
+.messages {
+  width: 75%;
+  display: flex;
+  height: 100vh;
+  background-color: rgb(15, 11, 11);
+  align-items: flex-end;
+}
