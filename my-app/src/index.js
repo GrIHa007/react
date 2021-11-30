@@ -1,12 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Massage from "./App";
+import { Header } from "./components";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ChatPage, ProfileForm } from "./pages";
 
-const myName = "Grigory";
-ReactDOM.render(
-  <React.StrictMode>
-    <Massage name={myName} />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+const Root = () => {
+  return (
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/chat/*" element={<ChatPage />} />
+        <Route path="/profile" element={<ProfileForm />} />
+        <Route path="/*" element={<h1>404</h1>} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+ReactDOM.render(<Root />, document.getElementById("root"));
