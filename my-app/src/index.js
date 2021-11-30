@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import { Header } from "./components";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ChatPage } from "./pages/chat";
+import { ChatPage, ProfileForm } from "./pages";
 
 const Root = () => {
   return (
@@ -11,7 +11,7 @@ const Root = () => {
       <Header />
       <Routes>
         <Route path="/chat/*" element={<ChatPage />} />
-        <Route path="/profile" />
+        <Route path="/profile" element={<ProfileForm />} />
         <Route path="/*" element={<h1>404</h1>} />
       </Routes>
     </BrowserRouter>

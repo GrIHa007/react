@@ -10,7 +10,7 @@ export const useBotAnswer = (messageList, sendMessage) => {
 
     if (messages.length && lastMessage.author === "User") {
       setTimeout(() => {
-        sendMessage("Bot", "Hello from bot");
+        sendMessage("Hello from bot", "Bot");
       }, 500);
     }
   }, [messageList, sendMessage, roomId]);
