@@ -3,6 +3,13 @@
   height: 60px;
 }
 
-.header h5 {
+.nav {
+  display: flex;
+  width: 25%;
+  justify-content: space-around;
+}
+
+.link {
   color: rgb(43, 202, 11);
+  text-decoration: none;
 }

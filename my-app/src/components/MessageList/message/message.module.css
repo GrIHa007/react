@@ -1,17 +1,5 @@
-.BotMessage {
-  /* border: 1px solid rgb(221, 30, 30); */
+.message {
   margin-bottom: 10px;
-  background-color: #fff;
-  width: 300px;
-}
-
-.MyMessage {
-  /* border: 1px solid black; */
-  text-align: left;
-  background-color: lime;
-}
-
-.BotMessage p:last-child,
-.MyMessage p:last-child {
-  font-size: 10px;
+  background-color: rgb(43, 202, 11);
+  width: 150px;
 }

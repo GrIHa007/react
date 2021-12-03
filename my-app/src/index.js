@@ -1,20 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import { Provider } from "react-redux";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ChatPage, ProfilePage } from "./pages";
 import { Header } from "./components";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ChatPage, ProfileForm } from "./pages";
+
+import { store } from "./components/store/create-store";
 
 const Root = () => {
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/chat/*" element={<ChatPage />} />
-        <Route path="/profile" element={<ProfileForm />} />
-        <Route path="/*" element={<h1>404</h1>} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Header />
+
+        <Routes>
+          <Route path="/chat/*" element={<ChatPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/*" element={<h1>404</h1>} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 };
+
 ReactDOM.render(<Root />, document.getElementById("root"));

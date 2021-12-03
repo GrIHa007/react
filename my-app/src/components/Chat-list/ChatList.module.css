@@ -1,4 +1,8 @@
-.nav {
+.listNav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
   padding-top: 0px;
   padding-bottom: 0px;
 }

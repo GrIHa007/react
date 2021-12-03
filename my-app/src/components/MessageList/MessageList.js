@@ -67,7 +67,12 @@ export const MessageList = () => {
         onKeyPress={handlePressInput}
         endAdornment={
           <InputAdornment position="end">
-            {value && <Send onClick={() => sendMessage(value)} />}
+            {value && (
+              <Send
+                className={styles.sendIcon}
+                onClick={() => sendMessage(value)}
+              />
+            )}
           </InputAdornment>
         }
       />

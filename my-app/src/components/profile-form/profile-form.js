@@ -1,7 +1,7 @@
 import { Input, Button } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { updateProfile } from "../../store/profile";
+import { updateProfile } from "../store/profile/actions";
 import styles from "./profile-form.module.css";
 
 export function ProfileForm({ firstName, lastName, phone }) {
