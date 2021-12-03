@@ -1,0 +1,15 @@
+.header {
+  background-color: rgb(49, 49, 49);
+  height: 60px;
+}
+
+.nav {
+  display: flex;
+  width: 25%;
+  justify-content: space-around;
+}
+
+.link {
+  color: rgb(43, 202, 11);
+  text-decoration: none;
+}
